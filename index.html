@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English and Technology: The Global Digital Language</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#152844',
+                            900: '#0F2C59',
+                            950: '#0A1C3A'
+                        },
+                        gold: {
+                            400: '#E5B869',
+                            500: '#C68B27',
+                            600: '#A36F1B'
+                        },
+                        slateBg: '#FAFCFF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A1C3A;
+            color: #E2E8F0;
+        }
+
+        .tech-grid {
+            background-image: 
+                linear-gradient(to right, rgba(198, 139, 39, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 44, 89, 0.3) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .glow-gold {
+            box-shadow: 0 0 25px -5px rgba(198, 139, 39, 0.3);
+        }
+
+        .glow-navy {
+            box-shadow: 0 0 25px -5px rgba(15, 44, 89, 0.5);
+        }
+
+        /* Glassmorphism utility */
+        .glass-card {
+            background: rgba(15, 44, 89, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(198, 139, 39, 0.2);
+        }
+
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A1C3A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E3A8A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C68B27;
+        }
+    </style>
+</head>
+<body class="tech-grid min-h-screen antialiased flex flex-col justify-between selection:bg-gold-500 selection:text-navy-950">
+
+    <header class="sticky top-0 z-50 glass-card border-b border-gold-500/20 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-gold-500 to-navy-900 flex items-center justify-center text-white shadow-lg border border-gold-400/40">
+                    <i class="fa-solid fa-network-wired text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-lg sm:text-xl text-white tracking-tight block leading-none">English <span class="text-gold-400">&</span> Tech</span>
+                    <span class="text-xs text-gray-400 tracking-wider uppercase font-medium">Global Digital Language</span>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#overview" class="text-gray-300 hover:text-gold-400 transition-colors">Overview</a>
+                <a href="#web-dominance" class="text-gray-300 hover:text-gold-400 transition-colors">Web Stats</a>
+                <a href="#reinforcing-cycle" class="text-gray-300 hover:text-gold-400 transition-colors">The Cycle</a>
+                <a href="#shared-knowledge" class="text-gray-300 hover:text-gold-400 transition-colors">Knowledge Funnel</a>
+                <a href="#commerce" class="text-gray-300 hover:text-gold-400 transition-colors">Commerce</a>
+                <a href="#theory-reality" class="text-gray-300 hover:text-gold-400 transition-colors">Online Learning</a>
+                <a href="#quiz" class="px-4 py-2 rounded-full bg-gold-500 hover:bg-gold-400 text-navy-950 font-semibold transition-all shadow-md hover:shadow-gold-500/20">Student Quiz</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-300 hover:text-white focus:outline-none">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-gold-500/20 px-4 pt-2 pb-6 space-y-3">
+            <a href="#overview" class="block py-2 text-gray-200 hover:text-gold-400">Overview</a>
+            <a href="#web-dominance" class="block py-2 text-gray-200 hover:text-gold-400">Web Stats</a>
+            <a href="#reinforcing-cycle" class="block py-2 text-gray-200 hover:text-gold-400">The Reinforcing Cycle</a>
+            <a href="#shared-knowledge" class="block py-2 text-gray-200 hover:text-gold-400">Knowledge Funnel</a>
+            <a href="#commerce" class="block py-2 text-gray-200 hover:text-gold-400">Commerce & ICT</a>
+            <a href="#theory-reality" class="block py-2 text-gray-200 hover:text-gold-400">Online Learning Matrix</a>
+            <a href="#quiz" class="block text-center mt-2 py-2.5 rounded-lg bg-gold-500 text-navy-950 font-bold">Student Assessment Quiz</a>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-20">
+
+        <section id="overview" class="relative rounded-3xl p-8 sm:p-12 glass-card overflow-hidden border border-gold-500/30">
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-3xl">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold tracking-wide uppercase mb-6">
+                    <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+                    <span>Student Educational Portal</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                    English & Technology: <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-amber-300 to-gold-500">The Global Digital Language</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-300 font-light leading-relaxed mb-8">
+                    A symbiotic loop driving global economic and educational progress. Discover how technical literacy and English competency reinforce each other in today’s interconnected ecosystem.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#reinforcing-cycle" class="px-6 py-3.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold flex items-center space-x-2 transition-all shadow-lg hover:shadow-gold-500/30">
+                        <span>Explore the Symbiotic Loop</span>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                    <a href="#quiz" class="px-6 py-3.5 rounded-xl glass-card-light hover:bg-white/10 text-white font-semibold flex items-center space-x-2 border border-white/20 transition-all">
+                        <i class="fa-solid fa-graduation-cap text-gold-400"></i>
+                        <span>Take Assessment</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="web-dominance" class="space-y-8">
+            <div class="border-l-4 border-gold-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">English in the World</h2>
+                <p class="text-gray-400 text-sm">Global web presence and knowledge gatekeeping</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Interactive Globe Visual Card -->
+                <div class="lg:col-span-6 glass-card p-8 rounded-2xl relative overflow-hidden border border-gold-500/20 text-center flex flex-col items-center justify-center">
+                    <!-- Wireframe Sphere Graphic representation -->
+                    <div class="relative w-64 h-64 my-4 flex items-center justify-center">
+                        <div class="absolute inset-0 rounded-full border-2 border-dashed border-gold-500/40 animate-[spin_20s_linear_infinite]"></div>
+                        <div class="absolute inset-4 rounded-full border border-blue-400/30 animate-[spin_15s_linear_infinite_reverse]"></div>
+                        <div class="absolute inset-8 rounded-full bg-gradient-to-br from-navy-800 to-navy-950 flex flex-col items-center justify-center border border-gold-500/30 shadow-inner">
+                            <span class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-200">&gt; 50%</span>
+                            <span class="text-xs uppercase tracking-widest text-gray-300 mt-2 font-medium">Global Web Presence</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-xl bg-navy-900/80 border border-gold-500/20 max-w-md">
+                        <p class="text-sm text-gray-300">
+                            Of the <strong class="text-gold-400">10 million most visited websites</strong> globally, more than half are in English.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Insights List -->
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="glass-card p-6 rounded-2xl hover:border-gold-500/50 transition-all">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400">
+                                <i class="fa-solid fa-globe text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">Unlocking Global Knowledge</h3>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    Online English skills directly unlock access to the world’s accumulated digital repository of knowledge and enable international cross-border collaboration.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl hover:border-gold-500/50 transition-all">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400">
+                                <i class="fa-solid fa-microscope text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">Advanced Research Baseline</h3>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    Cutting-edge scientific research and technological innovation fundamentally require a baseline of English competency for comprehension and contribution.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl hover:border-gold-500/50 transition-all">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400">
+                                <i class="fa-solid fa-users-viewfinder text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">Global Collaboration</h3>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    Enables decentralized global development teams and international academic institutions to exchange research seamlessly in real time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reinforcing-cycle" class="space-y-8">
+            <div class="border-l-4 border-gold-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">English and Technology: The Reinforcing Cycle</h2>
+                <p class="text-gray-400 text-sm">Interactive diagram of the self-reinforcing feedback loop</p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-10 rounded-3xl border border-gold-500/20 relative">
+                <p class="text-center text-sm text-gray-300 mb-6">Click the nodes below to inspect components of the loop:</p>
+
+                <!-- Interactive Cycle Diagram -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative">
+                    <!-- Left Node: Tech Literacy -->
+                    <button onclick="selectLoopNode('tech')" id="btn-node-tech" class="p-6 rounded-2xl bg-navy-900 border-2 border-blue-500 hover:border-gold-400 transition-all text-left group relative overflow-hidden focus:outline-none">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Pillar 01</span>
+                            <i class="fa-solid fa-laptop-code text-blue-400 group-hover:scale-110 transition-transform text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Internet Penetration & Tech Literacy</h3>
+                        <p class="text-xs text-gray-300">Broadband Subscriptions & Secure Digital Infrastructure</p>
+                        <div class="mt-4 flex items-center space-x-2 text-xs text-gold-400 font-semibold">
+                            <span>Inspect details</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </button>
+
+                    <!-- Right Node: English Proficiency -->
+                    <button onclick="selectLoopNode('english')" id="btn-node-english" class="p-6 rounded-2xl bg-navy-900 border-2 border-gold-500 hover:border-gold-300 transition-all text-left group relative overflow-hidden focus:outline-none">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-gold-400">Pillar 02</span>
+                            <i class="fa-solid fa-language text-gold-400 group-hover:scale-110 transition-transform text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">English Proficiency</h3>
+                        <p class="text-xs text-gray-300">Fluency, Reading Comprehension & Professional Communication</p>
+                        <div class="mt-4 flex items-center space-x-2 text-xs text-gold-400 font-semibold">
+                            <span>Inspect details</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Dynamic Detail Panel -->
+                <div id="loop-detail-panel" class="p-6 rounded-2xl bg-navy-950/80 border border-gold-500/30 transition-all duration-300">
+                    <div id="loop-detail-content" class="space-y-3">
+                        <!-- Default loaded content -->
+                        <div class="flex items-center space-x-3 text-gold-400 font-semibold text-lg">
+                            <i class="fa-solid fa-rotate"></i>
+                            <span>The Core Insight</span>
+                        </div>
+                        <p class="text-gray-200 text-sm leading-relaxed">
+                            Average internet penetration is consistently higher in countries with stronger English proficiency. <strong>Skills unlock content; content improves skills.</strong> Internet use affords increased exposure to authentic English, while English allows users to navigate and utilize wider varieties of digital information.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Interactive Connectors Pill Bar -->
+                <div class="mt-6 flex flex-wrap justify-center gap-3">
+                    <button onclick="selectLoopNode('exposure')" class="px-4 py-2 rounded-xl bg-navy-900 border border-white/10 hover:border-gold-500/50 text-xs text-gray-300 hover:text-white transition-all flex items-center space-x-2">
+                        <i class="fa-solid fa-arrow-right-arrow-left text-gold-400"></i>
+                        <span>Exposure & Practice</span>
+                    </button>
+                    <button onclick="selectLoopNode('access')" class="px-4 py-2 rounded-xl bg-navy-900 border border-white/10 hover:border-gold-500/50 text-xs text-gray-300 hover:text-white transition-all flex items-center space-x-2">
+                        <i class="fa-solid fa-folder-open text-blue-400"></i>
+                        <span>Access to Information</span>
+                    </button>
+                    <button onclick="selectLoopNode('infrastructure')" class="px-4 py-2 rounded-xl bg-navy-900 border border-white/10 hover:border-gold-500/50 text-xs text-gray-300 hover:text-white transition-all flex items-center space-x-2">
+                        <i class="fa-solid fa-server text-purple-400"></i>
+                        <span>Infrastructure & Servers</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="shared-knowledge" class="space-y-8">
+            <div class="border-l-4 border-gold-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">A World of Shared Knowledge</h2>
+                <p class="text-gray-400 text-sm">The digital tech funnel feeding global workforce competence</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card p-6 rounded-2xl relative border-t-4 border-t-blue-500 flex flex-col justify-between hover:translate-y-1 transition-transform">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-2 rounded-lg bg-blue-500/10 text-blue-400 font-mono text-xs">01 / TECH</span>
+                            <i class="fa-solid fa-building-columns text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">American Tech Dominance</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">
+                            The vast majority of influential technology platforms, hardware standardizers, and tech giants are headquartered in English-speaking regions.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-6 rounded-2xl relative border-t-4 border-t-gold-500 flex flex-col justify-between hover:translate-y-1 transition-transform">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-2 rounded-lg bg-gold-500/10 text-gold-400 font-mono text-xs">02 / CODE</span>
+                            <i class="fa-solid fa-code text-gold-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Programming Vocabulary</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">
+                            Almost all widely used programming languages (Python, JavaScript, C++, Java) are based on English keywords (`if`, `else`, `function`, `class`, `return`).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-6 rounded-2xl relative border-t-4 border-t-purple-500 flex flex-col justify-between hover:translate-y-1 transition-transform">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-2 rounded-lg bg-purple-500/10 text-purple-400 font-mono text-xs">03 / PAPERS</span>
+                            <i class="fa-solid fa-book-bookmark text-purple-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Research Output</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">
+                            The vast majority of modern IT, Computer Science, and Artificial Intelligence research papers are written and peer-reviewed in English.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Funnel Gateway Banner -->
+            <div class="glass-card p-6 sm:p-8 rounded-2xl border border-gold-500/30 bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                    <div class="space-y-2">
+                        <div class="inline-flex items-center space-x-2 text-gold-400 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-filter"></i>
+                            <span>The Language Gateway</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Low English Proficiency Restricts Growth</h3>
+                        <p class="text-gray-300 text-sm max-w-2xl">
+                            Low English proficiency directly restricts access to vital technological fields and cuts off regional engineers from global open-source ecosystems.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 rounded-xl bg-gold-500/10 border border-gold-500/40 text-gold-300 text-xs sm:text-sm font-semibold max-w-md text-center lg:text-left">
+                        <i class="fa-solid fa-user-check text-gold-400 mr-2"></i>
+                        Forms a technically competent professional generation capable of implementing IT infrastructure and managing international e-commerce.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="commerce" class="space-y-8">
+            <div class="border-l-4 border-gold-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">Technology in Commerce</h2>
+                <p class="text-gray-400 text-sm">Economic value of ICT services and cross-border digital trade</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Statistic Box -->
+                <div class="lg:col-span-5 glass-card p-8 rounded-2xl border border-gold-500/30 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-gold-400">Global Valuation (WTO Data)</span>
+                        <div class="mt-4 text-4xl sm:text-5xl font-black text-white tracking-tight">
+                            $1.421 <span class="text-gold-400 text-3xl font-bold">Trillion</span>
+                        </div>
+                        <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+                            Total estimated value of telecommunications, computing, and information services exports globally.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-white/10 space-y-3">
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="text-gray-400">Europe Export Share</span>
+                            <span class="text-gold-400 font-bold">~ 50% of Global ICT</span>
+                        </div>
+                        <div class="w-full h-2 rounded-full bg-navy-950 overflow-hidden">
+                            <div class="w-1/2 h-full bg-gradient-to-r from-gold-500 to-amber-300 rounded-full"></div>
+                        </div>
+                        <p class="text-xs text-gray-400">Europe accounts for nearly half of global information and communication technology exports.</p>
+                    </div>
+                </div>
+
+                <!-- Explanation & Commerce Dynamics -->
+                <div class="lg:col-span-7 glass-card p-8 rounded-2xl border border-gold-500/20 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-3 text-gold-400">
+                            <i class="fa-solid fa-chart-line text-2xl"></i>
+                            <h3 class="text-xl font-bold text-white">New Trade Sectors Require Dual Competency</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Technology continuously creates entirely new sectors of global trade—from remote software development to SaaS and international cloud management.
+                        </p>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Expanding in these modern sectors requires national economies to simultaneously build both <strong>technological skills</strong> and a <strong>workforce capable of communicating with international clients in English</strong>.
+                        </p>
+                    </div>
+
+                    <div class="mt-6 p-4 rounded-xl bg-navy-950/60 border border-blue-500/20 flex items-center space-x-3">
+                        <i class="fa-solid fa-briefcase text-blue-400 text-xl"></i>
+                        <span class="text-xs text-gray-300">
+                            <strong>Key Takeaway:</strong> Tech literacy without English limits trade to local markets; English without tech limits service delivery depth.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="theory-reality" class="space-y-8">
+            <div class="border-l-4 border-gold-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">Learning English Online: Closing the Loop</h2>
+                <p class="text-gray-400 text-sm">Evaluating online learning claims against operational reality</p>
+            </div>
+
+            <!-- Side-by-Side Comparison Matrix -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Theory Column -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border-t-4 border-t-amber-500 space-y-6">
+                    <div class="flex items-center space-x-3 border-b border-white/10 pb-4">
+                        <i class="fa-solid fa-lightbulb text-amber-400 text-2xl"></i>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">The Promise (Theory)</h3>
+                            <span class="text-xs text-amber-400">Theoretical Potential</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-navy-950/60 border border-white/5 space-y-1 hover:border-amber-500/30 transition-all">
+                            <h4 class="text-sm font-semibold text-amber-300">Authentic Exposure</h4>
+                            <p class="text-xs text-gray-300">Direct exposure to real-world English without top-down institutional instruction.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-navy-950/60 border border-white/5 space-y-1 hover:border-amber-500/30 transition-all">
+                            <h4 class="text-sm font-semibold text-amber-300">Mobile Personalization</h4>
+                            <p class="text-xs text-gray-300">Mobile connections enabling self-paced personalized learning outside formal schools.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-navy-950/60 border border-white/5 space-y-1 hover:border-amber-500/30 transition-all">
+                            <h4 class="text-sm font-semibold text-amber-300">Emerging AI & VR</h4>
+                            <p class="text-xs text-gray-300">Cutting-edge AI tutors and Virtual Reality ushering in immersive digital training.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-navy-950/60 border border-white/5 space-y-1 hover:border-amber-500/30 transition-all">
+                            <h4 class="text-sm font-semibold text-amber-300">High Quality Instruction</h4>
+                            <p class="text-xs text-gray-300">Higher quality instructional materials than typically available locally.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reality Column -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border-t-4 border-t-blue-500 space-y-6">
+                    <div class="flex items-center space-x-3 border-b border-white/10 pb-4">
+                        <i class="fa-solid fa-scale-balanced text-blue-400 text-2xl"></i>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">The Reality (Practice)</h3>
+                            <span class="text-xs text-blue-400">Current Field Observations</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-6 rounded-xl bg-navy-950/60 border border-white/5 space-y-2 hover:border-blue-500/30 transition-all">
+                            <div class="flex items-center space-x-2 text-blue-400 font-semibold text-sm">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <span>Low Adoption Rates</span>
+                            </div>
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                Self-guided technology is frequently hampered by poor digital adoption rates, lack of hardware, or insufficient initial digital literacy.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-xl bg-navy-950/60 border border-white/5 space-y-2 hover:border-blue-500/30 transition-all">
+                            <div class="flex items-center space-x-2 text-blue-400 font-semibold text-sm">
+                                <i class="fa-solid fa-user-slash"></i>
+                                <span>High Attrition Rates</span>
+                            </div>
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                Fully self-directed apps struggle with steep student drop-off rates due to lack of structured feedback and human engagement.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Takeaway Strategic Banner -->
+            <div class="glass-card p-8 rounded-2xl border border-gold-500/40 text-center space-y-4 relative overflow-hidden">
+                <div class="inline-block p-3 rounded-full bg-gold-500/10 text-gold-400 mb-2">
+                    <i class="fa-solid fa-bullseye text-2xl"></i>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white">Bridging the Gap</h3>
+                <p class="text-gray-200 text-sm sm:text-base max-w-4xl mx-auto leading-relaxed">
+                    To reach full potential, technology-enabled English training must bridge the gap by linking learners to <strong>more compelling design strategies and live online instruction</strong>—generating the very English-proficient workforce the digital economy needs to survive.
+                </p>
+            </div>
+        </section>
+
+        <section id="quiz" class="space-y-8">
+            <div class="border-l-4 border-gold-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">Interactive Assessment</h2>
+                <p class="text-gray-400 text-sm">Test your comprehension of English & Technology in the global economy</p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-10 rounded-3xl border border-gold-500/30">
+                <div id="quiz-container" class="space-y-6">
+                    <!-- Progress Bar -->
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                        <span id="quiz-progress-text">Question 1 of 4</span>
+                        <span id="quiz-score-text" class="text-gold-400 font-bold">Score: 0</span>
+                    </div>
+                    <div class="w-full h-2 rounded-full bg-navy-950 overflow-hidden">
+                        <div id="quiz-progress-bar" class="h-full bg-gold-500 w-1/4 transition-all duration-300"></div>
+                    </div>
+
+                    <!-- Question Card -->
+                    <div id="question-card" class="space-y-6 pt-4">
+                        <!-- Dynamic Question Content -->
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex justify-between items-center pt-6 border-t border-white/10">
+                        <button id="prev-btn" onclick="prevQuestion()" class="px-5 py-2.5 rounded-xl glass-card-light text-xs font-semibold text-gray-300 hover:text-white disabled:opacity-40" disabled>
+                            Previous
+                        </button>
+                        <button id="next-btn" onclick="nextQuestion()" class="px-6 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 text-xs font-bold transition-all shadow-md">
+                            Submit & Next
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Results (Hidden by default) -->
+                <div id="quiz-result" class="hidden text-center py-8 space-y-6">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-gold-500/20 border-2 border-gold-500 flex items-center justify-center text-gold-400 text-3xl">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Assessment Complete!</h3>
+                        <p class="text-gray-300 text-sm mt-1" id="result-summary">You scored 4 out of 4</p>
+                    </div>
+                    <div id="result-feedback" class="p-4 rounded-xl bg-navy-900 border border-gold-500/30 max-w-md mx-auto text-xs text-gray-300">
+                        Excellent grasp of the symbiotic link between English proficiency and global technological progress!
+                    </div>
+                    <button onclick="restartQuiz()" class="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-sm transition-all">
+                        Retake Assessment
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="glass-card border-t border-gold-500/20 mt-20 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-book-open text-gold-400"></i>
+                <span class="text-sm font-semibold text-white">English and Technology: Student Portal</span>
+            </div>
+            <p class="text-xs text-gray-400 text-center">
+                Based on global digital language research & market reports. Built for academic exploration.
+            </p>
+            <div class="text-xs text-gold-400/80 font-mono">
+                Gemini Educational Notebook
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* Mobile Menu Toggle */
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        /* Interactive Loop Detail Data */
+        const nodeData = {
+            'tech': {
+                title: 'Internet Penetration & Tech Literacy',
+                icon: 'fa-laptop-code',
+                color: 'text-blue-400',
+                content: 'Access to broadband subscriptions and secure server infrastructure provides the hardware foundation. High tech literacy enables users to navigate digital tools where English is the predominant operating language.'
+            },
+            'english': {
+                title: 'English Proficiency',
+                icon: 'fa-language',
+                color: 'text-gold-400',
+                content: 'English proficiency gives users the linguistic ability to comprehend worldwide research, utilize coding documentations, engage in global e-commerce, and collaborate in international tech forums.'
+            },
+            'exposure': {
+                title: 'Exposure & Practice Mechanism',
+                icon: 'fa-arrow-right-arrow-left',
+                color: 'text-amber-400',
+                content: 'Internet use affords increased daily exposure to authentic conversational and technical English, providing informal practice outside structured classroom settings.'
+            },
+            'access': {
+                title: 'Access to Information',
+                icon: 'fa-folder-open',
+                color: 'text-blue-400',
+                content: 'English allows users to navigate, index, and utilize wider varieties of digital information, tutorials, open-source code libraries, and research papers.'
+            },
+            'infrastructure': {
+                title: 'Broadband Subscriptions & Secure Servers',
+                icon: 'fa-server',
+                color: 'text-purple-400',
+                content: 'Infrastructure acts as the physical engine. Higher server density and broadband availability correlate strongly with increased exposure to online English materials.'
+            }
+        };
+
+        function selectLoopNode(key) {
+            const data = nodeData[key];
+            if (!data) return;
+
+            const panel = document.getElementById('loop-detail-content');
+            panel.style.opacity = '0';
+            
+            setTimeout(() => {
+                panel.innerHTML = `
+                    <div class="flex items-center space-x-3 ${data.color} font-semibold text-lg">
+                        <i class="fa-solid ${data.icon}"></i>
+                        <span>${data.title}</span>
+                    </div>
+                    <p class="text-gray-200 text-sm leading-relaxed mt-2">${data.content}</p>
+                `;
+                panel.style.opacity = '1';
+            }, 150);
+        }
+
+        /* Student Quiz Application Logic */
+        const quizQuestions = [
+            {
+                question: "What percentage of the 10 million most visited websites globally are in English?",
+                options: ["Less than 20%", "Approximately 35%", "More than 50%", "Over 90%"],
+                correct: 2,
+                explanation: "Over 50% of the top 10 million websites are written in English, making it the dominant web medium."
+            },
+            {
+                question: "According to 2016 WTO data, what was the estimated global value of telecommunications, computing, and information services exports?",
+                options: ["$500 Billion", "$1.421 Trillion", "$3.800 Trillion", "$850 Million"],
+                correct: 1,
+                explanation: "The ICT services export market was valued at $1.421 Trillion, with Europe accounting for nearly half."
+            },
+            {
+                question: "What is a major obstacle currently facing fully self-guided online English learning solutions in practice?",
+                options: [
+                    "High student attrition/drop-off rates and low adoption",
+                    "Complete lack of mobile internet availability globally",
+                    "Programming languages transitioning away from English",
+                    "Prohibitive costs of web hosting"
+                ],
+                correct: 0,
+                explanation: "Despite the promise of digital learning, practical applications struggle with low adoption rates and high attrition without live instruction and compelling design."
+            },
+            {
+                question: "Why are most widely used programming languages (Python, JavaScript, C++) tied to English?",
+                options: [
+                    "They use English-based keywords (if, else, function) established during early tech development in English-speaking regions.",
+                    "International law mandates English in computer science.",
+                    "Programming languages are automatically translated by computers.",
+                    "Non-English keyboards cannot input source code."
+                ],
+                correct: 0,
+                explanation: "American tech dominance and early CS foundational work established English as the syntax standard for major software languages."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedOption = null;
+
+        function renderQuestion() {
+            const q = quizQuestions[currentQuestion];
+            const container = document.getElementById('question-card');
+            
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestion + 1} of ${quizQuestions.length}`;
+            document.getElementById('quiz-progress-bar').style.width = `${((currentQuestion + 1) / quizQuestions.length) * 100}%`;
+            document.getElementById('quiz-score-text').innerText = `Score: ${score}`;
+
+            let optionsHTML = '';
+            q.options.forEach((opt, idx) => {
+                optionsHTML += `
+                    <button onclick="selectOption(${idx})" id="opt-${idx}" class="w-full p-4 rounded-xl bg-navy-900 border border-white/10 hover:border-gold-500/50 text-left text-sm text-gray-200 transition-all flex items-center justify-between group">
+                        <span>${opt}</span>
+                        <i class="fa-regular fa-circle text-gray-500 group-hover:text-gold-400"></i>
+                    </button>
+                `;
+            });
+
+            container.innerHTML = `
+                <h3 class="text-lg sm:text-xl font-bold text-white mb-4">${q.question}</h3>
+                <div class="space-y-3">${optionsHTML}</div>
+            `;
+
+            selectedOption = null;
+            document.getElementById('prev-btn').disabled = (currentQuestion === 0);
+            document.getElementById('next-btn').innerText = (currentQuestion === quizQuestions.length - 1) ? "Submit Quiz" : "Submit & Next";
+        }
+
+        function selectOption(index) {
+            selectedOption = index;
+            quizQuestions[currentQuestion].options.forEach((_, idx) => {
+                const btn = document.getElementById(`opt-${idx}`);
+                if (idx === index) {
+                    btn.className = "w-full p-4 rounded-xl bg-gold-500/10 border-2 border-gold-500 text-left text-sm text-white font-medium transition-all flex items-center justify-between";
+                    btn.querySelector('i').className = "fa-solid fa-circle-check text-gold-400";
+                } else {
+                    btn.className = "w-full p-4 rounded-xl bg-navy-900 border border-white/10 text-left text-sm text-gray-400 transition-all flex items-center justify-between opacity-60";
+                    btn.querySelector('i').className = "fa-regular fa-circle text-gray-500";
+                }
+            });
+        }
+
+        function nextQuestion() {
+            if (selectedOption === null) {
+                alert("Please select an answer before proceeding.");
+                return;
+            }
+
+            if (selectedOption === quizQuestions[currentQuestion].correct) {
+                score += 1;
+            }
+
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('question-card').classList.add('hidden');
+            document.getElementById('prev-btn').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+            document.getElementById('quiz-progress-bar').parentElement.classList.add('hidden');
+            
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.classList.remove('hidden');
+
+            document.getElementById('result-summary').innerText = `You scored ${score} out of ${quizQuestions.length}`;
+            
+            const feedback = document.getElementById('result-feedback');
+            if (score === quizQuestions.length) {
+                feedback.innerText = "Perfect score! You fully comprehend the interplay between technology adoption, trade exports, and English as a digital lingua franca.";
+            } else if (score >= 2) {
+                feedback.innerText = "Good effort! You have a solid grasp of key concepts. Review the Reinforcing Cycle and Commerce sections to solidify your knowledge.";
+            } else {
+                feedback.innerText = "Keep studying! Re-read the interactive modules above to better understand how English and tech skills complement each other.";
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            selectedOption = null;
+
+            document.getElementById('question-card').classList.remove('hidden');
+            document.getElementById('prev-btn').classList.remove('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+            document.getElementById('quiz-progress-bar').parentElement.classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+
+            renderQuestion();
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            renderQuestion();
+        };
+    </script>
+</body>
+</html>
