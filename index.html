@@ -122,14 +122,13 @@
                             Say it backwards!
                         </a>
                     </div>
-                    
                 </div>
 
                 <a href="#quiz" class="px-4 py-2 rounded-full bg-gold-500 hover:bg-gold-400 text-navy-950 font-semibold transition-all shadow-md hover:shadow-gold-500/20">Student Quiz</a>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-300 hover:text-white focus:outline-none">
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-300 hover:text-white focus:outline-none" aria-label="Open menu" aria-expanded="false">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
@@ -144,8 +143,14 @@
             <a href="#theory-reality" class="block py-2 text-gray-200 hover:text-gold-400">Online Learning Matrix</a>
 
             <div class="pt-2 border-t border-white/10">
-                <p class="text-xs uppercase tracking-wider text-gray-400 mb-2">Resources</p>
-                <a href="https://canva.link/r9xfa54l6rklasm" target="_blank" rel="noopener noreferrer" class="block py-2 text-gray-200 hover:text-gold-400">Resource 1</a>
+                <button id="mobile-resources-toggle" type="button" class="w-full flex items-center justify-between py-2 text-left text-gray-200 hover:text-gold-400 transition-colors" aria-expanded="false">
+                    <span class="text-xs uppercase tracking-wider text-gray-400">Resources</span>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                </button>
+                <div id="mobile-resources-menu" class="hidden mt-2 space-y-2">
+                    <a href="https://canva.link/r9xfa54l6rklasm" target="_blank" rel="noopener noreferrer" class="block py-2 text-gray-200 hover:text-gold-400">The cloud!</a>
+                    <a href="https://www.youtube.com/shorts/2_0DOM06-Nc" target="_blank" rel="noopener noreferrer" class="block py-2 text-gray-200 hover:text-gold-400">Say it backwards!</a>
+                </div>
             </div>
 
             <a href="#quiz" class="block text-center mt-2 py-2.5 rounded-lg bg-gold-500 text-navy-950 font-bold">Student Assessment Quiz</a>
@@ -318,22 +323,22 @@
                             <span>The Core Insight</span>
                         </div>
                         <p class="text-gray-200 text-sm leading-relaxed">
-                            Average internet penetration is consistently higher in countries with stronger English proficiency. <strong>Skills unlock content; content improves skills.</strong> Internet access and communication capacity reinforce each other over time.
+                            Average internet penetration is consistently higher in countries with stronger English proficiency. <strong>Skills unlock content; content improves skills.</strong> Internet-enabled exposure accelerates both technological literacy and language acquisition.
                         </p>
                     </div>
                 </div>
 
                 <!-- Interactive Connectors Pill Bar -->
                 <div class="mt-6 flex flex-wrap justify-center gap-3">
-                    <button onclick="selectLoopNode('exposure')" class="px-4 py-2 rounded-xl bg-navy-900 border border-white/10 hover:border-gold-500/50 text-xs text-gray-300 hover:text-white transition-all">
+                    <button onclick="selectLoopNode('exposure')" class="px-4 py-2 rounded-xl bg-navy-900 border border-white/10 hover:border-gold-500/50 text-xs text-gray-300 hover:text-white transition-colors">
                         <i class="fa-solid fa-arrow-right-arrow-left text-gold-400"></i>
                         <span>Exposure & Practice</span>
                     </button>
-                    <button onclick="selectLoopNode('access')" class="px-4 py-2 rounded-xl bg-navy-900 border border-white/10 hover:border-gold-500/50 text-xs text-gray-300 hover:text-white transition-all">
+                    <button onclick="selectLoopNode('access')" class="px-4 py-2 rounded-xl bg-navy-900 border border-white/10 hover:border-gold-500/50 text-xs text-gray-300 hover:text-white transition-colors">
                         <i class="fa-solid fa-folder-open text-blue-400"></i>
                         <span>Access to Information</span>
                     </button>
-                    <button onclick="selectLoopNode('infrastructure')" class="px-4 py-2 rounded-xl bg-navy-900 border border-white/10 hover:border-gold-500/50 text-xs text-gray-300 hover:text-white transition-all">
+                    <button onclick="selectLoopNode('infrastructure')" class="px-4 py-2 rounded-xl bg-navy-900 border border-white/10 hover:border-gold-500/50 text-xs text-gray-300 hover:text-white transition-colors">
                         <i class="fa-solid fa-server text-purple-400"></i>
                         <span>Infrastructure & Servers</span>
                     </button>
@@ -454,7 +459,7 @@
                             Technology continuously creates entirely new sectors of global trade—from remote software development to SaaS and international cloud management.
                         </p>
                         <p class="text-gray-300 text-sm leading-relaxed">
-                            Expanding in these modern sectors requires national economies to simultaneously build both <strong>technological skills</strong> and a <strong>workforce capable of communicating in English</strong> to operate internationally.
+                            Expanding in these modern sectors requires national economies to simultaneously build both <strong>technological skills</strong> and a <strong>workforce capable of communicating and transacting in global business environments</strong>.
                         </p>
                     </div>
 
@@ -550,7 +555,7 @@
                 </div>
                 <h3 class="text-xl sm:text-2xl font-bold text-white">Bridging the Gap</h3>
                 <p class="text-gray-200 text-sm sm:text-base max-w-4xl mx-auto leading-relaxed">
-                    To reach full potential, technology-enabled English training must bridge the gap by linking learners to <strong>more compelling design strategies and live online instruction</strong> that maintain engagement and measurable progress.
+                    To reach full potential, technology-enabled English training must bridge the gap by linking learners to more compelling design strategies and live online instruction while strengthening digital access and teacher support.
                 </p>
             </div>
         </section>
@@ -631,7 +636,29 @@
 
         if (mobileBtn && mobileMenu) {
             mobileBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                mobileBtn.setAttribute('aria-expanded', String(!isHidden));
+            });
+
+            mobileMenu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        const mobileResourcesToggle = document.getElementById('mobile-resources-toggle');
+        const mobileResourcesMenu = document.getElementById('mobile-resources-menu');
+
+        if (mobileResourcesToggle && mobileResourcesMenu) {
+            mobileResourcesToggle.addEventListener('click', () => {
+                const isHidden = mobileResourcesMenu.classList.toggle('hidden');
+                mobileResourcesToggle.setAttribute('aria-expanded', String(!isHidden));
+                const chevron = mobileResourcesToggle.querySelector('i');
+                if (chevron) {
+                    chevron.classList.toggle('rotate-180', !isHidden);
+                }
             });
         }
 
@@ -641,13 +668,13 @@
                 title: 'Internet Penetration & Tech Literacy',
                 icon: 'fa-laptop-code',
                 color: 'text-blue-400',
-                content: 'Access to broadband subscriptions and secure server infrastructure provides the hardware foundation. High tech literacy enables users to navigate digital tools where English is the common interface and documentation language.'
+                content: 'Access to broadband subscriptions and secure server infrastructure provides the hardware foundation. High tech literacy enables users to navigate digital tools where English is the dominant interface and coding language.'
             },
             'english': {
                 title: 'English Proficiency',
                 icon: 'fa-language',
                 color: 'text-gold-400',
-                content: 'English proficiency gives users the linguistic ability to comprehend worldwide research, utilize coding documentation, engage in global e-commerce, and collaborate in international digital environments.'
+                content: 'English proficiency gives users the linguistic ability to comprehend worldwide research, utilize coding documentation, engage in global e-commerce, and collaborate in international teams.'
             },
             'exposure': {
                 title: 'Exposure & Practice Mechanism',
